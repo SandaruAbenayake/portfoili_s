@@ -6,6 +6,9 @@ import Hero from './component/Hero.jsx';
 import About from './component/About.jsx';
 import Portfolio from './component/Portfolio.jsx';
 import Contact from './component/Contact.jsx';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 
 function App() {
   return (
