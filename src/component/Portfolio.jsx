@@ -1,6 +1,7 @@
 // components/Portfolio.jsx
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { IconButton } from "@mui/material";
+import { Chip } from "@mui/material"; // Import Chip at the top
 
 import React, { useRef } from "react";
 import {
@@ -68,6 +69,8 @@ const PortfolioCard = ({ project }) => {
   // eslint-disable-next-line no-unused-vars
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
+ 
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -125,23 +128,37 @@ const PortfolioCard = ({ project }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 size="small"
-                sx={{ ml: 1 }}
+                sx={{
+                  ml: 1,
+                  backgroundColor: "	#b2b2b2", //
+                  color: "#0000002", //
+                  fontWeight: 500,
+                }}
               >
                 <GitHubIcon fontSize="small" />
               </IconButton>
             )}
           </Box>
-          <Typography variant="body2" color="text.secondary">
+
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
             {project.description}
           </Typography>
-          <Typography
-            variant="caption"
-            display="block"
-            color="text.secondary"
-            sx={{ mt: 1 }}
-          >
-            Tech: {project.tech}
-          </Typography>
+
+          {/* Render tech stack as Chips */}
+          <Box display="flex" flexWrap="wrap" gap={0.5}>
+            {project.tech.split(",").map((techItem, idx) => (
+              <Chip
+                key={idx}
+                label={techItem.trim()}
+                size="small"
+                sx={{
+                  backgroundColor: "#e0f7fa", // Light teal
+                  color: "#006064", // Dark teal text
+                  fontWeight: 500,
+                }}
+              />
+            ))}
+          </Box>
         </CardContent>
       </Card>
     </motion.div>
