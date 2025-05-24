@@ -3,6 +3,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import { Box,Typography } from '@mui/material';
 
+
 const techLogos = [
   { src: '/logos/html.png', alt: 'HTML' },
   { src: '/logos/css.png', alt: 'CSS' },
@@ -42,14 +43,10 @@ const TechSlider = () => {
   key={index}
   sx={{
     px: 2,
-    display: 'flex',
-    flexDirection: 'column', // stack image and text vertically
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
+
   }}
 >
-  <img src={logo.src} alt={logo.alt} height="50" style={{ objectFit: 'contain', marginBottom: 8 }} />
+  <img src={logo.src} alt={logo.alt} height="50" style={{ objectFit: 'contain', marginBottom: 8 , margin:"auto" }} />
   <Typography variant="body2">{logo.alt}</Typography>
 </Box>
 

@@ -1,20 +1,37 @@
-import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemText, useMediaQuery } from '@mui/material';
-import { Menu, Close } from '@mui/icons-material';
-import { Link } from 'react-scroll';
+import React, { useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  useMediaQuery,
+} from "@mui/material";
+import { Menu, Close } from "@mui/icons-material";
+import { Link } from "react-scroll";
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const isMobile = useMediaQuery('(max-width:768px)');
-
-  const navItems = ['about', 'portfolio', 'services', 'contact'];
+  const isMobile = useMediaQuery("(max-width:768px)");
+  
+  const navItems = ["about", "portfolio", "contact"];
 
   return (
-    <AppBar position="fixed" color="transparent" elevation={0} sx={{ backdropFilter: 'blur(10px)' }}>
+    <AppBar
+      position="fixed"
+      color="transparent"
+      elevation={0}
+      sx={{ backdropFilter: "blur(10px)" }}
+    >
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          D.
+          Developer
         </Typography>
+
         {isMobile ? (
           <>
             <IconButton onClick={() => setOpen(true)}>
@@ -27,8 +44,15 @@ const Navbar = () => {
               <List>
                 {navItems.map((item) => (
                   <ListItem button key={item}>
-                    <Link to={item} smooth duration={500} onClick={() => setOpen(false)}>
-                      <ListItemText primary={item.charAt(0).toUpperCase() + item.slice(1)} />
+                    <Link
+                      to={item}
+                      smooth
+                      duration={500}
+                      onClick={() => setOpen(false)}
+                    >
+                      <ListItemText
+                        primary={item.charAt(0).toUpperCase() + item.slice(1)}
+                      />
                     </Link>
                   </ListItem>
                 ))}
@@ -42,7 +66,7 @@ const Navbar = () => {
               to={item}
               smooth
               duration={500}
-              style={{ margin: '0 16px', cursor: 'pointer' }}
+              style={{ margin: "0 16px", cursor: "pointer" }}
             >
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </Link>
