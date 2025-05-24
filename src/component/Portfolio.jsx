@@ -1,4 +1,7 @@
 // components/Portfolio.jsx
+import GitHubIcon from "@mui/icons-material/GitHub";
+import { IconButton } from "@mui/material";
+
 import React, { useRef } from "react";
 import {
   Box,
@@ -17,6 +20,8 @@ const projects = [
       "A Java Swing-based desktop app for hospital management with role-based access (Cashier, Manager).",
     tech: "Java, Swing",
     image: "/images/city-hospital.png",
+    github:
+      "https://github.com/SandaruAbenayake/City-Hospital-Management-System",
   },
   {
     title: "MunchMix",
@@ -24,18 +29,21 @@ const projects = [
       "A PHP-based food website with menus, cart, and interactive design using HTML, CSS, JS.",
     tech: "PHP, HTML, CSS, JavaScript",
     image: "/images/munchmix.jpg",
+    github: "https://github.com/SandaruAbenayake/MunchMix",
   },
   {
     title: "Face Mask Detector",
     description: "Real-time face mask detection using MobileNetV2 and OpenCV.",
     tech: "Python, OpenCV, MobileNetV2",
     video: "/videos/mask-detector.mp4",
+    github: "https://github.com/SandaruAbenayake/face-mask-detector",
   },
   {
     title: "Notes App",
     description: "MERN stack notes app with CRUD operations and a clean UI.",
     tech: "MongoDB, Express, React, Node.js",
     image: "/images/note-app.png",
+    github: "https://github.com/SandaruAbenayake/Notes-App",
   },
   {
     title: "Volume Balance",
@@ -43,6 +51,7 @@ const projects = [
       "Hand gesture-based volume control using OpenCV and MediaPipe.",
     tech: "Python, OpenCV, MediaPipe",
     video: "/videos/volume-balance.mp4",
+    github: "https://github.com/SandaruAbenayake/volume-balance",
   },
   {
     title: "Flutter Restaurant App",
@@ -50,11 +59,13 @@ const projects = [
       "A mobile restaurant system app built with Flutter for managing food orders.",
     tech: "Flutter, Dart, Firebase",
     image: "/images/flutter-restaurant.png",
+    github: "https://github.com/SandaruAbenayake/Flutter-Restaurant_App",
   },
 ];
 
 const PortfolioCard = ({ project }) => {
   const ref = useRef(null);
+  // eslint-disable-next-line no-unused-vars
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
@@ -97,10 +108,29 @@ const PortfolioCard = ({ project }) => {
             alt={project.title}
           />
         )}
+
         <CardContent>
-          <Typography variant="h6" fontWeight="bold">
-            {project.title}
-          </Typography>
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Typography variant="h6" fontWeight="bold">
+              {project.title}
+            </Typography>
+            {project.github && (
+              <IconButton
+                component="a"
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                size="small"
+                sx={{ ml: 1 }}
+              >
+                <GitHubIcon fontSize="small" />
+              </IconButton>
+            )}
+          </Box>
           <Typography variant="body2" color="text.secondary">
             {project.description}
           </Typography>

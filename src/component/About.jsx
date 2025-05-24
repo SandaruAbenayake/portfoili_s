@@ -21,28 +21,28 @@ const About = () => (
     transition={{ duration: 0.8, ease: "easeOut" }}
     viewport={{ once: false, amount: 0.5 }}
   >
-    {/* Big letter "A" in background */}
-    <Typography
-      component="span"
+    {/* Background photo */}
+    <Box
+      component="img"
+      src="/images/sandaru.jpeg" // 👈 Correct usage for images in /public
+      alt="Sandaru"
       sx={{
         position: "absolute",
-        top: "10%",
+        top: "50%",
         left: "50%",
-        transform: "translateX(-50%)",
-        fontSize: { xs: "15rem", md: "25rem" },
-        fontWeight: 900,
-        color: "rgba(0, 0, 0, 0.05)",
+        transform: "translate(-50%, -50%)",
+        width: { xs: "60%", md: "40%" },
+        opacity: 0.5,
         userSelect: "none",
         pointerEvents: "none",
+        borderRadius: "50%", // makes it circular
         zIndex: 0,
-        fontFamily: "'Montserrat', sans-serif",
+        objectFit: "cover",
       }}
-    >
-      A
-    </Typography>
+    />
 
-    {/* Actual content on top */}
-    <Box sx={{ maxWidth: 700, zIndex: 1 }}>
+    {/* Foreground content */}
+    <Box sx={{ maxWidth: 1000, zIndex: 1 }}>
       <Typography
         variant="h3"
         gutterBottom

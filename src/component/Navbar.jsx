@@ -29,7 +29,7 @@ const Navbar = () => {
     >
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          Developer
+          Will be a developer 
         </Typography>
 
         {isMobile ? (
@@ -66,7 +66,7 @@ const Navbar = () => {
               to={item}
               smooth
               duration={500}
-              style={{ margin: "0 16px", cursor: "pointer" }}
+              style={{ margin: "0 20px", cursor: "pointer" }}
             >
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </Link>

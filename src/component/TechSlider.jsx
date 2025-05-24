@@ -24,7 +24,7 @@ const techLogos = [
 const TechSlider = () => {
   const settings = {
     infinite: true,
-    speed: 2500,
+    speed: 1900,
     slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
@@ -35,20 +35,20 @@ const TechSlider = () => {
   };
 
   return (
-    <Box sx={{ mt: 4, width: "90%" }}>
+    <Box sx={{ mt: 28, width: "98%" }}>
       <Slider {...settings}>
         {techLogos.map((logo, index) => (
           <Box
             key={index}
             sx={{
-              px: 2,
+              px: 1,
             }}
           >
             <img
               src={logo.src}
               alt={logo.alt}
-              height="50"
-              style={{ objectFit: "contain", marginBottom: 8, margin: "auto" }}
+              height="100"
+              style={{ objectFit: "contain", marginBottom: 18, margin: "auto" }}
             />
             <Typography variant="body2">{logo.alt}</Typography>
           </Box>
