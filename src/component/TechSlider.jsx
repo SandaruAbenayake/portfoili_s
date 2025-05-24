@@ -32,16 +32,43 @@ const TechSlider = () => {
     cssEase: "linear",
     arrows: false,
     pauseOnHover: false,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 5,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
   };
 
   return (
-    <Box sx={{ mt: 28, width: "98%" }}>
+    <Box sx={{ mt: 28, width: { xs: "100%", sm: "95%", md: "90%", lg: "85%" }, mx: "auto" }}>
       <Slider {...settings}>
         {techLogos.map((logo, index) => (
           <Box
             key={index}
             sx={{
               px: 1,
+              textAlign: "center"
             }}
           >
             <img
