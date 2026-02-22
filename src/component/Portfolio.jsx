@@ -16,13 +16,20 @@ import { motion, useInView } from "framer-motion";
 
 const projects = [
   {
-    title: "City Hospital Management System",
+  title: "ML Palm Harvest Project",
+  description: "Machine learning project predicting palm yield using Python.",
+  tech: "Python, Pandas, YOLOv11, OpenCV",
+  image: "/images/icon.png",
+  github: "https://github.com/Final-Year-Research-Oil-Plam",
+},
+  {
+    title: "Phahan EDU Book Shop",
     description:
-      "A Java Swing-based desktop app for hospital management with role-based access (Cashier, Manager).",
-    tech: "Java, Swing",
-    image: "/images/city-hospital.png",
+      "A Java Servlets-based web app for managing a bookstore with user and admin access.",
+    tech: "Java, Servlets, MySQL, React, MUI",
+    image: "/images/phahana-edu.png",
     github:
-      "https://github.com/SandaruAbenayake/City-Hospital-Management-System",
+      "https://github.com/SandaruAbenayake/pahana_edu",
   },
   {
     title: "MunchMix",
@@ -32,19 +39,20 @@ const projects = [
     image: "/images/munchmix.jpg",
     github: "https://github.com/SandaruAbenayake/MunchMix",
   },
+    {
+    title: "Flutter Restaurant App",
+    description:
+      "A mobile restaurant system app built with Flutter for managing food orders.",
+    tech: "Flutter, Dart, Firebase",
+    image: "/images/flutter-restaurant.png",
+    github: "https://github.com/SandaruAbenayake/Flutter-Restaurant_App",
+  },
   {
     title: "Face Mask Detector",
     description: "Real-time face mask detection using MobileNetV2 and OpenCV.",
     tech: "Python, OpenCV, MobileNetV2",
     video: "/videos/mask-detector.mp4",
     github: "https://github.com/SandaruAbenayake/face-mask-detector",
-  },
-  {
-    title: "Notes App",
-    description: "MERN stack notes app with CRUD operations and a clean UI.",
-    tech: "MongoDB, Express, React, Node.js",
-    image: "/images/note-app.png",
-    github: "https://github.com/SandaruAbenayake/Notes-App",
   },
   {
     title: "Volume Balance",
@@ -54,13 +62,12 @@ const projects = [
     video: "/videos/volume-balance.mp4",
     github: "https://github.com/SandaruAbenayake/volume-balance",
   },
-  {
-    title: "Flutter Restaurant App",
-    description:
-      "A mobile restaurant system app built with Flutter for managing food orders.",
-    tech: "Flutter, Dart, Firebase",
-    image: "/images/flutter-restaurant.png",
-    github: "https://github.com/SandaruAbenayake/Flutter-Restaurant_App",
+    {
+    title: "Notes App",
+    description: "MERN stack notes app with CRUD operations and a clean UI.",
+    tech: "MongoDB, Express, React, Node.js",
+    image: "/images/note-app.png",
+    github: "https://github.com/SandaruAbenayake/Notes-App",
   },
 ];
 
