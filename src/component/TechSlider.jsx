@@ -61,7 +61,7 @@ const TechSlider = () => {
   };
 
   return (
-    <Box sx={{ mt: 28, width: { xs: "100%", sm: "95%", md: "90%", lg: "85%" }, mx: "auto" }}>
+    <Box sx={{ mt: 4, width: { xs: "100%", sm: "95%", md: "90%", lg: "85%" }, mx: "auto" }}>
       <Slider {...settings}>
         {techLogos.map((logo, index) => (
           <Box

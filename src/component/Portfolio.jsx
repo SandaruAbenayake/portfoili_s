@@ -1,7 +1,6 @@
-// components/Portfolio.jsx
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { IconButton } from "@mui/material";
-import { Chip } from "@mui/material"; // Import Chip at the top
+import { Chip } from "@mui/material";
 
 import React, { useRef } from "react";
 import {
@@ -13,6 +12,7 @@ import {
   CardMedia,
 } from "@mui/material";
 import { motion, useInView } from "framer-motion";
+import { useTheme } from "../context/ThemeContext.jsx";
 
 const projects = [
   {
@@ -27,7 +27,7 @@ const projects = [
     description:
       "A Java Servlets-based web app for managing a bookstore with user and admin access.",
     tech: "Java, Servlets, MySQL, React, MUI",
-    image: "/images/phahana-edu.png",
+    image: "/images/phahan-edu.png",
     github:
       "https://github.com/SandaruAbenayake/pahana_edu",
   },
@@ -71,12 +71,10 @@ const projects = [
   },
 ];
 
-const PortfolioCard = ({ project }) => {
+const PortfolioCard = ({ project, isDark }) => {
   const ref = useRef(null);
   // eslint-disable-next-line no-unused-vars
   const isInView = useInView(ref, { once: true, amount: 0.2 });
-
- 
 
   return (
     <motion.div
@@ -89,9 +87,17 @@ const PortfolioCard = ({ project }) => {
         sx={{
           width: 300,
           height: 400,
-          transition: "0.3s ease-in-out",
+          background: isDark ? 'rgba(30, 40, 70, 0.8)' : 'rgba(255, 255, 255, 0.85)',
+          backdropFilter: 'blur(10px)',
+          WebkitBackdropFilter: 'blur(10px)',
+          border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.2)'}`,
+          borderRadius: '16px',
+          transition: "all 0.3s ease",
+          boxShadow: isDark ? '0 8px 32px rgba(0, 0, 0, 0.3)' : '0 8px 32px rgba(0, 0, 0, 0.1)',
           "&:hover": {
-            boxShadow: 6,
+            transform: "translateY(-8px)",
+            boxShadow: isDark ? '0 12px 40px rgba(0, 0, 0, 0.5)' : '0 12px 40px rgba(0, 0, 0, 0.15)',
+            background: isDark ? 'rgba(40, 55, 90, 0.9)' : 'rgba(255, 255, 255, 0.95)',
           },
         }}
       >
@@ -159,8 +165,8 @@ const PortfolioCard = ({ project }) => {
                 label={techItem.trim()}
                 size="small"
                 sx={{
-                  backgroundColor: "#e0f7fa", // Light teal
-                  color: "#006064", // Dark teal text
+                  backgroundColor: isDark ? "rgba(100, 150, 255, 0.3)" : "#e0f7fa",
+                  color: isDark ? "#87ceeb" : "#006064",
                   fontWeight: 500,
                 }}
               />
@@ -172,19 +178,28 @@ const PortfolioCard = ({ project }) => {
   );
 };
 
-const Portfolio = () => (
-  <Box id="portfolio" sx={{ padding: 8 }}>
-    <Typography variant="h4" gutterBottom textAlign="center" fontWeight="bold">
-      Portfolio
-    </Typography>
-    <Grid container spacing={5} justifyContent="center">
-      {projects.map((project, index) => (
-        <Grid item xs={12} sm={6} md={10} key={index}>
-          <PortfolioCard project={project} />
-        </Grid>
-      ))}
-    </Grid>
-  </Box>
-);
+const Portfolio = () => {
+  const { isDark } = useTheme();
+
+  return (
+    <Box id="portfolio" sx={{ padding: 8 }}>
+      <Typography variant="h4" gutterBottom textAlign="center" fontWeight="bold" sx={{
+        background: 'linear-gradient(45deg, #ff6b6b, #ee7752)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+      }}>
+        Portfolio
+      </Typography>
+      <Grid container spacing={5} justifyContent="center">
+        {projects.map((project, index) => (
+          <Grid item xs={12} sm={6} md={10} key={index}>
+            <PortfolioCard project={project} isDark={isDark} />
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
+  );
+};
 
 export default Portfolio;

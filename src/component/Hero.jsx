@@ -45,6 +45,7 @@ const Hero = () => (
       variant="h2"
       component="h1"
       sx={{
+        mt: 20,
         display: 'inline-flex',
         justifyContent: 'center',
         flexWrap: 'wrap',
@@ -88,7 +89,7 @@ const Hero = () => (
         fontSize: { xs: '1.9rem', sm: '2.6rem', md: '4.2rem' },
       }}
     >
-      Full Stack Developer
+      From Pixels to Servers.
     </Typography>
 
     <Box sx={{ width: '100%' }}>
